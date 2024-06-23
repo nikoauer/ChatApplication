@@ -40,16 +40,31 @@ const ChannelListContainer = () => {
         <div className="flex-grow overflow-auto">
           <ChannelSearch />
           <div className="mt-3">
-          <ChannelList
-            filters={{}}
-            channelRenderFilterFn={() => {}}
-            List={(listProps) => <TeamChannelList {...listProps} type="team" />}
-            Preview ={(previewProps) => (
-                <TeamChannelPreview 
-                {...previewProps}
+            <ChannelList
+              filters={{}}
+              channelRenderFilterFn={() => {}}
+              List={(listProps) => (
+                <TeamChannelList {...listProps} type="team" />
+              )}
+              Preview={(previewProps) => (
+                <TeamChannelPreview {...previewProps} 
+                type="team"
                 />
-            )}
-          />
+              )}
+            />
+
+            <ChannelList
+              filters={{}}
+              channelRenderFilterFn={() => {}}
+              List={(listProps) => (
+                <TeamChannelList {...listProps} type="messaging" />
+              )}
+              Preview={(previewProps) => (
+                <TeamChannelPreview {...previewProps} 
+                type="messaging"
+                />
+              )}
+            />
           </div>
         </div>
       </div>
