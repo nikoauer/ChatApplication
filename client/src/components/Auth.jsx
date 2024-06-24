@@ -31,17 +31,17 @@ const Auth = () => {
   const submitForm = async (event) => {
     event.preventDefault();
    
-    const { username, avatarURL, phoneNumber, password } = form;
+    const { fullName, username, avatarURL, phoneNumber, password } = form;
    
     const URL = "http://localhost:3000/auth";
    
     try {
        const {
-         data: { token, userId, hashedPassword, fullName },
+         data: { token, userId, hashedPassword },
        } = await axios.post(`${URL}/${isSignup ? "signup" : "login"}`, {
          username,
          password,
-         fullName: form.fullName,
+         fullName,
          phoneNumber,
          avatarURL,
        });
