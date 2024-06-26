@@ -12,6 +12,7 @@ const client = StreamChat.getInstance(apiKey)
 
 const authToken = cookies.get("token")
 
+
 if (authToken) {
     client.connectUser(
       {
