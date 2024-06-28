@@ -4,6 +4,8 @@ import axios from "axios";
 import AuthHeader from "../assets/AuthHeader.png";
 import ChatAppLogoPurple from "../assets/ChatAppLogoPurple.png";
 import { Chat } from "stream-chat-react";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const cookies = new Cookies();
 
@@ -58,18 +60,20 @@ const Auth = () => {
       }
       window.location.reload();
     } catch (error) {
+      toast.error("Your username or password is incorrect!", { position: "top-left" });
       console.error("Error submitting form:", error);
     }
   };
 
   return (
     <div className="flex min-h-screen">
+      <ToastContainer />
       <div className="flex flex-1 flex-col justify-center px-4 py-12 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
         <div className="mx-auto w-full max-w-sm lg:w-96">
           <div>
             <img className="h-12 w-auto" src={ChatAppLogoPurple} alt="ChatApp" />
             <h2 className="mt-8 text-2xl font-bold leading-9 tracking-tight text-gray-900">
-              {isSignup ? "Sign up for an account" : "Login in to your account"}
+              {isSignup ? "Sign up for an account" : "Log in to your account"}
             </h2>
           </div>
 
