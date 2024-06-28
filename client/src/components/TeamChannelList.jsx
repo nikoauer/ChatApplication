@@ -24,7 +24,7 @@ const TeamChannelList = ({children, error = false, loading, type}) => {
     }
 
   return (
-    <div className="max-w-xs rounded-md bg-blue-50 p-3 break-words">
+    <div className="max-w-xs rounded-md bg-blue-50 p-2 break-words my-2">
         <div>
             <p className='text-sm font-medium'>
                 {type === 'team' ? 'Channels' : 'Direct Messages'}
