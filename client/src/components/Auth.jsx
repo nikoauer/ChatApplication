@@ -30,49 +30,44 @@ const Auth = () => {
 
   const submitForm = async (event) => {
     event.preventDefault();
-   
+
     const { fullName, username, avatarURL, phoneNumber, password } = form;
-   
+
     const URL = "http://localhost:3000/auth";
-   
+
     try {
-       const {
-         data: { token, userId, hashedPassword },
-       } = await axios.post(`${URL}/${isSignup ? "signup" : "login"}`, {
-         username,
-         password,
-         fullName,
-         phoneNumber,
-         avatarURL,
-       });
-   
-       cookies.set("token", token);
-       cookies.set("username", username);
-       cookies.set("fullName", fullName);
-       cookies.set("userId", userId);
-   
-       if (isSignup) {
-         cookies.set("phoneNumber", phoneNumber);
-         cookies.set("avatarURL", avatarURL);
-         cookies.set("hashedPassword", hashedPassword);
-       }
-       window.location.reload();
+      const {
+        data: { token, userId, hashedPassword },
+      } = await axios.post(`${URL}/${isSignup ? "signup" : "login"}`, {
+        username,
+        password,
+        fullName,
+        phoneNumber,
+        avatarURL,
+      });
+
+      cookies.set("token", token);
+      cookies.set("username", username);
+      cookies.set("fullName", fullName);
+      cookies.set("userId", userId);
+
+      if (isSignup) {
+        cookies.set("phoneNumber", phoneNumber);
+        cookies.set("avatarURL", avatarURL);
+        cookies.set("hashedPassword", hashedPassword);
+      }
+      window.location.reload();
     } catch (error) {
-       console.error("Error submitting form:", error);
+      console.error("Error submitting form:", error);
     }
-   };
-   
+  };
 
   return (
-    <div className="flex min-h-full flex-1">
+    <div className="flex min-h-screen">
       <div className="flex flex-1 flex-col justify-center px-4 py-12 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
         <div className="mx-auto w-full max-w-sm lg:w-96">
           <div>
-            <img
-              className="h-12 w-auto"
-              src={ChatAppLogoPurple}
-              alt="ChatApp"
-            />
+            <img className="h-12 w-auto" src={ChatAppLogoPurple} alt="ChatApp" />
             <h2 className="mt-8 text-2xl font-bold leading-9 tracking-tight text-gray-900">
               {isSignup ? "Sign up for an account" : "Login in to your account"}
             </h2>
@@ -240,7 +235,7 @@ const Auth = () => {
           </div>
         </div>
       </div>
-      <div className="relative lg:block hidden w-0 flex-1">
+      <div className="relative min-h-screen lg:block hidden w-0 flex-1">
         <img
           className="absolute inset-0 h-full w-full object-cover"
           src={AuthHeader}
