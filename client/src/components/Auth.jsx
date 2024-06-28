@@ -240,7 +240,7 @@ const Auth = () => {
           </div>
         </div>
       </div>
-      <div className="relative h-screen lg:block hidden w-0 flex-1">
+      <div className="relative lg:block hidden w-0 flex-1">
         <img
           className="absolute inset-0 h-full w-full object-cover"
           src={AuthHeader}
