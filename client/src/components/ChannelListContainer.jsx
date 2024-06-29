@@ -10,21 +10,6 @@ import chatAppLogo from "../assets/ChatAppLogo.png";
 
 const cookies = new Cookies();
 
-const SideBar = ({ logout }) => (
-  <div className="w-18 shadow-md bg-indigo-600">
-    <div className="w-[44px] h-[44px] m-[14px] rounded-full shadow-md">
-      <div className="font-sans h-full flex items-center justify-center">
-        <img src={chatSymbol} alt="chat symbol" width="50" />
-      </div>
-    </div>
-    <div className="w-[44px] h-[44px] m-[14px] rounded-full shadow-md">
-      <div className="font-sans h-full flex items-center justify-center cursor-pointer" onClick={logout}>
-        <img src={signOut} alt="signout" width="50" />
-      </div>
-    </div>
-  </div>
-);
-
 const CompanyHeader = () => (
   <div className="px-5 pt-3 h-[62px]">
     <img src={chatAppLogo} alt="Logo" width="200" />
@@ -142,7 +127,7 @@ const ChannelListContainer = () => {
         </div>
       </div>
 
-      <div className="sticky top-0 z-40 flex items-center gap-x-6 bg-indigo-600 px-4 py-4 shadow-sm sm:px-6 lg:hidden">
+      <div className="sticky top-0 z-40 flex items-center gap-x-6 bg-indigo-600 px-4 py-4 shadow-md sm:px-6 lg:hidden">
         <button type="button" className="-m-2.5 p-2.5 text-indigo-200 lg:hidden" onClick={() => setSidebarOpen(true)}>
           <span className="sr-only">Open sidebar</span>
           <Bars3Icon className="h-6 w-6" aria-hidden="true" />
