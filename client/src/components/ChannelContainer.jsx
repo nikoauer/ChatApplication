@@ -1,6 +1,6 @@
 import React from 'react';
 import { MessageSimple, useChatContext, Channel } from 'stream-chat-react';
-import { ChannelInner, CreateChannel, EditChannel, TeamMessage } from './indexComponents';
+import { ChannelInner, CreateChannel, EditChannel } from './indexComponents';
 
 const ChannelContainer = ({ isCreating, setIsCreating, createType, setIsEditing, isEditing }) => {
   const { channel } = useChatContext(); // rename Channel to channel to avoid conflict
