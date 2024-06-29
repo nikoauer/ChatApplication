@@ -22,9 +22,15 @@ const ChannelContainer = ({ isCreating, setIsCreating, createType, setIsEditing,
   }
 
   const EmptyState = () => (
-    <div>
-      <p className="">This is the beginning of your chat history</p>
-      <p className="">Send Messages, emoji's, links and more! 😁</p>
+    <div className="flex flex-col justify-end h-full">
+      <div className="mx-12 pb-2">
+        <p className="text-base font-bold">
+          This is the beginning of your chat history
+        </p>
+        <p className="text-base text-indigo-400">
+          Send messages, attachments, emojos and more!
+        </p>
+      </div>
     </div>
   );
 

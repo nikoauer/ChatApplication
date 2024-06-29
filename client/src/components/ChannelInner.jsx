@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { MessageList, MessageInput, Thread, Window, useChannelActionContext, Avatar, useChannelStateContext, useChatContext } from 'stream-chat-react';
 
-// import ChannelInfo from '../assets/ChannelInfo';
+
+import ChannelInfo from '../assets/ChannelInfo';
 
 export const GiphyContext = React.createContext({});
 
@@ -66,28 +67,32 @@ const TeamChannelHeader = ({ setIsEditing }) => {
       }
   
       return (
-        <div >
-          <p ># {channel.data.name}</p>
-          <span style={{ display: 'flex' }} onClick={() => setIsEditing(true)}>
-            {/* <ChannelInfo /> */}
-          </span>
-        </div>
+        <div className="flex items-center cursor-pointer">
+        <p className="font-bold text-lg text-indigo-700 mr-2">
+          {channel.data.name}
+        </p>
+        <span style={{ display: "flex" }} onClick={() => setIsEditing(true)}>
+          <ChannelInfo />
+        </span>
+      </div>
       );
     };
-  
+
     const getWatcherText = (watchers) => {
       if (!watchers) return 'No users online';
-      if (watchers === 1) return '1 user online';
+      if (watchers === 1) return `1 user online`;
       return `${watchers} users online`;
     };
   
     return (
-      <div >
-        <MessagingHeader />
-        <div >
-          <p >{getWatcherText(watcher_count)}</p>
-        </div>
+      <div className="relative h-10 flex justify-between items-center px-10 bg-white shadow-md rounded-lg">
+      <MessagingHeader />
+      <div className="flex-0.55 flex items-center justify-end text-right">
+        <p className="text-sm text-gray-500">
+          {getWatcherText(watcher_count)}
+        </p>
       </div>
+    </div>
     );
   };
 
