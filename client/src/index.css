@@ -1,3 +1,35 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.str-chat__list {
+    padding-right: 30px;
+} 
+
+.str-chat__reaction-list {
+ padding-top: 3px;
+}
+
+.str-chat__thread-start {
+    margin-top: 25px;
+}
+
+.str-chat__message-reactions-details-reaction-types {
+    margin-left: 20px;
+}
+
+.str-chat__edit-message-cancel {
+    padding-right: 20px;
+}
+
+.str-chat__edit-message-send {
+    padding-right: 5px;
+}
+
+.str-chat__close-thread-button {
+    background-color: red;
+}
+
+.str-chat__parent-message-li {
+    margin-top: 30px;
+}

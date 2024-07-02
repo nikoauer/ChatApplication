@@ -32,7 +32,7 @@ const ChannelInner = ({ setIsEditing }) => {
       <div className='flex w-full'>
         <Window>
           <TeamChannelHeader setIsEditing={setIsEditing} />
-          <MessageList />
+            <MessageList class='custom-message-list' />
           <MessageInput overrideSubmitHandler={overrideSubmitHandler} />
         </Window>
         <Thread />
