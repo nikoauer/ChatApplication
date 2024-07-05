@@ -27,7 +27,7 @@ const TeamChannelList = ({children, error = false, loading, type, isCreating, se
   return (
     <div className="max-w-xs rounded-md bg-blue-50 p-2 break-words my-2">
     <div className="flex items-center justify-between">
-        <p className='text-sm font-medium'>
+        <p className='text-medium font-medium'>
             {type === 'team' ? 'Channels' : 'Direct Messages'}
         </p>
         <AddChannel
