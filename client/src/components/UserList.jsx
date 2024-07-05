@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Avatar, useChatContext } from "stream-chat-react";
-import { InviteIcon } from "../assets/InviteIcon";
 import { AiOutlineUserAdd } from "react-icons/ai";
 
 
@@ -19,10 +18,15 @@ const ListContainer = ({ children }) => {
   );
 };
 
-const UserItem = ({ user }) => {
+const UserItem = ({ user, setSelectedUsers }) => {
   const [selected, setSelected] = useState(false);
 
   const handleSelect = () => {
+    if(selected) {
+      setSelectedUsers((prevUsers) => prevUsers.filter((prevUsers) => prevUsers !== user.id))
+    } else {
+      setSelectedUsers((prevUsers) => [...prevUsers, user.id])
+    }
     setSelected((prevSelected) => !prevSelected);
   };
 
@@ -54,7 +58,7 @@ const UserItem = ({ user }) => {
   );
 };
 
-const UserList = () => {
+const UserList = ({setSelectedUsers}) => {
   const { client } = useChatContext();
   const [user, setUsers] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -90,7 +94,7 @@ const UserList = () => {
       {loading ? (
         <div className="font-sm m-20">Loading Users...</div>
       ) : (
-        user?.map((user, i) => <UserItem index={i} key={user.id} user={user} />)
+        user?.map((user, i) => <UserItem index={i} key={user.id} user={user} setSelectedUsers={setSelectedUsers} />)
       )}
     </ListContainer>
   );

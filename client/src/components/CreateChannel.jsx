@@ -5,6 +5,7 @@ import { CloseCreateChannel } from '../assets/CloseCreateChannel'
 import { UserList } from './indexComponents'
 
 const ChannelNameInput = ({ channelName = '', setChannelName }) => {
+
   const handleChange = (event) => {
     event.preventDefault()
     setChannelName(event.target.value)
@@ -23,6 +24,8 @@ const ChannelNameInput = ({ channelName = '', setChannelName }) => {
 
 const CreateChannel = ({ createType, setIsCreating}) => {
   const [channelName, setChannelName] = useState('')
+  const [selectedUsers, setSelectedUsers] = useState(useChatContext([client.userID || '']))
+  const { client , setActiveChannel } = useChatContext()
 
   return (
     <div className='flex flex-col h-full'>
@@ -31,7 +34,7 @@ const CreateChannel = ({ createType, setIsCreating}) => {
         <CloseCreateChannel setIsCreating={setIsCreating}/>
       </div>
       {createType === 'team' && <ChannelNameInput channelName={channelName} setChannelName={setChannelName}/>}
-      <UserList />
+      <UserList setSelectedUsers={setSelectedUsers}/>
     </div>
   )
 }
