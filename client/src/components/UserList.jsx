@@ -6,8 +6,11 @@ const ListContainer = ({children}) => {
   return (
     <div className='flex flex-col h-full'>
       <div className='flex items-center justify-between mx-6 my-4'>
-        <p>User</p>
-        <p>Invite</p>
+        <div className='flex items-center flex-2'>
+          <p className='font-bold'>User</p>
+          <p className='ml-6 font-bold'>Name/ID</p>
+        </div>
+        <p className='font-bold'>Invite</p>
       </div>
       {children}
     </div>
@@ -16,10 +19,12 @@ const ListContainer = ({children}) => {
 
 const UserItem = ({user}) => {
   return (
-    <div className='flex items-center mx-6 justif-between'>
-      <div className='felx items-center flex-2 text-left'>
-        <Avatar image={user.image} name={user.fullName || user.id} size={32}/>
+    <div className='flex items-center mx-6 justif-between py-1'>
+      <div className='flex items-center flex-2 text-left'>
+        <Avatar image={user.image} name={user.fullName || user.id} size={40}/>
+        <p className='font-normal text-md pl-3'>{user.fullName || user.id}</p>
       </div>
+      <InviteIcon />
     </div>
   )
 }
