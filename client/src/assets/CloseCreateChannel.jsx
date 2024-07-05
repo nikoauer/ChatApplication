@@ -1,7 +1,7 @@
 import React from 'react';
 
 export const CloseCreateChannel = ({ setIsCreating, setIsEditing }) => (
-<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="size-11"
+<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="size-11 cursor-pointer"
     width='32'
     height='32'
     viewBox='0 0 32 32'

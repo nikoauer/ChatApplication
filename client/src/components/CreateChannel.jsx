@@ -25,12 +25,13 @@ const CreateChannel = ({ createType, setIsCreating}) => {
   const [channelName, setChannelName] = useState('')
 
   return (
-    <div className='flex, flex-col, h-full'>
-      <div className="flex items-center justify-between h-[62px] shadow-sm pr-5">
+    <div className='flex flex-col h-full'>
+      <div className="flex items-center justify-between h-[60px] shadow-sm pr-5">
         <p className='ml-5 font-semibold text-lg text-gray-800'>{createType === 'team' ? 'Create a new channel' : 'Send a direct message'}</p>
         <CloseCreateChannel setIsCreating={setIsCreating}/>
       </div>
       {createType === 'team' && <ChannelNameInput channelName={channelName} setChannelName={setChannelName}/>}
+      <UserList />
     </div>
   )
 }
