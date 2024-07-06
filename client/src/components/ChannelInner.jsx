@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { MessageList, MessageInput, Thread, Window, useChannelActionContext, Avatar, useChannelStateContext, useChatContext } from 'stream-chat-react';
 import ChannelInfo from '../assets/ChannelInfo';
+import { UserCircleIcon } from '@heroicons/react/24/outline';
 
 export const GiphyContext = React.createContext({});
 
@@ -80,14 +81,18 @@ const TeamChannelHeader = ({ setIsEditing }) => {
     if (watchers === 1) return `1 user online`;
     return `${watchers} users online`;
   };
-
+  
   return (
     <div className="relative h-14 flex justify-between items-center px-6 py-4 bg-white shadow-md">
       <MessagingHeader />
       <div className="flex-0.55 flex items-center justify-end text-right">
-        <p className="text-sm text-gray-500">
-          {getWatcherText(watcher_count)}
-        </p>
+        <span className="relative inline-block mr-1">
+          <UserCircleIcon className="h-8 w-8 rounded-full" />
+          {watcher_count > 0 && (
+            <span className="absolute bottom-0 right-0 block h-2.5 w-2.5 rounded-full bg-green-400 ring-2 ring-white" />
+          )}
+        </span>
+        {getWatcherText(watcher_count)}
       </div>
     </div>
   );

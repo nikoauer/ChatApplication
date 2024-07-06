@@ -12,7 +12,7 @@ const ListContainer = ({ children }) => {
           <p className="font-bold">User</p>
           <p className="ml-6 font-bold">Name/ID</p>
         </div>
-        <p className="font-bold">Invite</p>
+        <p className="font-bold mr-2">Invite</p>
       </div>
       {children}
     </div>
