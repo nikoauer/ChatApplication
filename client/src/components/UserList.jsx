@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Avatar, useChatContext } from "stream-chat-react";
 import { AiOutlineUserAdd } from "react-icons/ai";
-import { XCircleIcon, InformationCircleIcon } from '@heroicons/react/20/solid'
-
+import { XCircleIcon, InformationCircleIcon } from "@heroicons/react/20/solid";
 
 const ListContainer = ({ children }) => {
   return (
@@ -23,16 +22,18 @@ const UserItem = ({ user, setSelectedUsers }) => {
   const [selected, setSelected] = useState(false);
 
   const handleSelect = () => {
-    if(selected) {
-      setSelectedUsers((prevUsers) => prevUsers.filter((prevUser) => prevUser !== user.id))
+    if (selected) {
+      setSelectedUsers((prevUsers) =>
+        prevUsers.filter((prevUser) => prevUser !== user.id)
+      );
     } else {
-      setSelectedUsers((prevUsers) => [...prevUsers, user.id])
+      setSelectedUsers((prevUsers) => [...prevUsers, user.id]);
     }
     setSelected((prevSelected) => !prevSelected);
   };
 
   const truncateId = (id, n) => {
-    return (id && id.length > n) ? id.substr(0, n) + '...' : id;
+    return id && id.length > n ? id.substr(0, n) + "..." : id;
   };
 
   return (
@@ -42,7 +43,9 @@ const UserItem = ({ user, setSelectedUsers }) => {
     >
       <div className="flex items-center flex-2 text-left">
         <Avatar image={user.image} name={user.fullName || user.id} size={40} />
-        <p className="font-normal text-md pl-3">{user.fullName || truncateId(user.id, 14)}</p>
+        <p className="font-normal text-md pl-3">
+          {user.fullName || truncateId(user.id, 14)}
+        </p>
       </div>
       <div className="pr-2">
         {selected ? (
@@ -59,12 +62,12 @@ const UserItem = ({ user, setSelectedUsers }) => {
   );
 };
 
-const UserList = ({setSelectedUsers}) => {
+const UserList = ({ setSelectedUsers }) => {
   const { client } = useChatContext();
   const [user, setUsers] = useState([]);
   const [loading, setLoading] = useState(false);
   const [listEmpty, setListEmpty] = useState(false);
-  const [error, setError] = useState(false)
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     const getUsers = async () => {
@@ -84,42 +87,46 @@ const UserList = ({setSelectedUsers}) => {
           setListEmpty(true);
         }
       } catch (error) {
-        setError(true)
+        setError(true);
       }
       setLoading(false);
     };
     if (client) getUsers();
   }, []);
 
-
-  if(error) {
+  if (error) {
     <ListContainer>
       <div className="rounded-md bg-red-50 p-4">
-      <div className="flex">
-        <div className="flex-shrink-0">
-          <XCircleIcon aria-hidden="true" className="h-5 w-5 text-red-400" />
-        </div>
-        <div className="ml-3">
-          <h3 className="text-sm font-medium text-red-800">Error Loading, please refresh and try again later</h3>
+        <div className="flex">
+          <div className="flex-shrink-0">
+            <XCircleIcon aria-hidden="true" className="h-5 w-5 text-red-400" />
+          </div>
+          <div className="ml-3">
+            <h3 className="text-sm font-medium text-red-800">
+              Error Loading, please refresh and try again later
+            </h3>
+          </div>
         </div>
       </div>
-    </div>
-    </ListContainer>
+    </ListContainer>;
   }
 
-  if(error) {
+  if (error) {
     <ListContainer>
-          <div className="rounded-md bg-blue-50 p-4">
-      <div className="flex">
-        <div className="flex-shrink-0">
-          <InformationCircleIcon aria-hidden="true" className="h-5 w-5 text-blue-400" />
-        </div>
-        <div className="ml-3 flex-1 md:flex md:justify-between">
-          <p className="text-sm font-medium text-blue-700">No users found</p>
+      <div className="rounded-md bg-blue-50 p-4">
+        <div className="flex">
+          <div className="flex-shrink-0">
+            <InformationCircleIcon
+              aria-hidden="true"
+              className="h-5 w-5 text-blue-400"
+            />
+          </div>
+          <div className="ml-3 flex-1 md:flex md:justify-between">
+            <p className="text-sm font-medium text-blue-700">No users found</p>
+          </div>
         </div>
       </div>
-    </div>
-    </ListContainer>
+    </ListContainer>;
   }
 
   return (
@@ -127,7 +134,14 @@ const UserList = ({setSelectedUsers}) => {
       {loading ? (
         <div className="font-sm m-20">Loading Users...</div>
       ) : (
-        user?.map((user, i) => <UserItem index={i} key={user.id} user={user} setSelectedUsers={setSelectedUsers} />)
+        user?.map((user, i) => (
+          <UserItem
+            index={i}
+            key={user.id}
+            user={user}
+            setSelectedUsers={setSelectedUsers}
+          />
+        ))
       )}
     </ListContainer>
   );
