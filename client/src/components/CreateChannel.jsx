@@ -36,6 +36,14 @@ const CreateChannel = ({ createType, setIsCreating}) => {
       </div>
       {createType === 'team' && <ChannelNameInput channelName={channelName} setChannelName={setChannelName}/>}
       <UserList setSelectedUsers={setSelectedUsers}/>
+      <div className="h-[82px] flex items-center justify-end px-3">
+      <button
+        type="button"
+        className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+      >
+        {createType === 'team' ? 'Create Channel' : 'Create Message Group'}
+      </button>
+      </div>
     </div>
   )
 }

@@ -1,16 +1,15 @@
-import React from 'react';
+import React from "react";
+import { XMarkIcon } from "@heroicons/react/20/solid";
 
 export const CloseCreateChannel = ({ setIsCreating, setIsEditing }) => (
-<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="size-11 cursor-pointer"
-    width='32'
-    height='32'
-    viewBox='0 0 32 32'
+  <button
     onClick={() => {
       if (setIsCreating) setIsCreating(false);
       if (setIsEditing) setIsEditing(false);
     }}
+    type="button"
+    className="rounded-full bg-indigo-600 p-1.5 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
   >
-  <path className='fill-indigo-700' fillRule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm-1.72 6.97a.75.75 0 1 0-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 1 0 1.06 1.06L12 13.06l1.72 1.72a.75.75 0 1 0 1.06-1.06L13.06 12l1.72-1.72a.75.75 0 1 0-1.06-1.06L12 10.94l-1.72-1.72Z" clipRule="evenodd" />
-  </svg>
+    <XMarkIcon aria-hidden="true" className="h-5 w-5" />
+  </button>
 );
-
