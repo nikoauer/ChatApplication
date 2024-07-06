@@ -24,8 +24,9 @@ const ChannelNameInput = ({ channelName = '', setChannelName }) => {
 
 const CreateChannel = ({ createType, setIsCreating}) => {
   const [channelName, setChannelName] = useState('')
-  const [selectedUsers, setSelectedUsers] = useState(useChatContext([client.userID || '']))
   const { client , setActiveChannel } = useChatContext()
+  const [selectedUsers, setSelectedUsers] = useState(useChatContext([client.userID || '']))
+
 
   return (
     <div className='flex flex-col h-full'>

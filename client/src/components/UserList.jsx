@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Avatar, useChatContext } from "stream-chat-react";
 import { AiOutlineUserAdd } from "react-icons/ai";
+import { XCircleIcon, InformationCircleIcon } from '@heroicons/react/20/solid'
 
 
 const ListContainer = ({ children }) => {
@@ -23,7 +24,7 @@ const UserItem = ({ user, setSelectedUsers }) => {
 
   const handleSelect = () => {
     if(selected) {
-      setSelectedUsers((prevUsers) => prevUsers.filter((prevUsers) => prevUsers !== user.id))
+      setSelectedUsers((prevUsers) => prevUsers.filter((prevUser) => prevUser !== user.id))
     } else {
       setSelectedUsers((prevUsers) => [...prevUsers, user.id])
     }
@@ -63,6 +64,7 @@ const UserList = ({setSelectedUsers}) => {
   const [user, setUsers] = useState([]);
   const [loading, setLoading] = useState(false);
   const [listEmpty, setListEmpty] = useState(false);
+  const [error, setError] = useState(false)
 
   useEffect(() => {
     const getUsers = async () => {
@@ -82,12 +84,43 @@ const UserList = ({setSelectedUsers}) => {
           setListEmpty(true);
         }
       } catch (error) {
-        console.log(error);
+        setError(true)
       }
       setLoading(false);
     };
     if (client) getUsers();
   }, []);
+
+
+  if(error) {
+    <ListContainer>
+      <div className="rounded-md bg-red-50 p-4">
+      <div className="flex">
+        <div className="flex-shrink-0">
+          <XCircleIcon aria-hidden="true" className="h-5 w-5 text-red-400" />
+        </div>
+        <div className="ml-3">
+          <h3 className="text-sm font-medium text-red-800">Error Loading, please refresh and try again later</h3>
+        </div>
+      </div>
+    </div>
+    </ListContainer>
+  }
+
+  if(error) {
+    <ListContainer>
+          <div className="rounded-md bg-blue-50 p-4">
+      <div className="flex">
+        <div className="flex-shrink-0">
+          <InformationCircleIcon aria-hidden="true" className="h-5 w-5 text-blue-400" />
+        </div>
+        <div className="ml-3 flex-1 md:flex md:justify-between">
+          <p className="text-sm font-medium text-blue-700">No users found</p>
+        </div>
+      </div>
+    </div>
+    </ListContainer>
+  }
 
   return (
     <ListContainer>
