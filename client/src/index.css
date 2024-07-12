@@ -33,3 +33,16 @@
 .str-chat__parent-message-li {
     margin-top: 30px;
 }
+
+.str-chat-channel-list.team{
+    width: 20px;
+    position: static;
+    max-height: 420px;
+    overflow: auto;
+} 
+
+.str-chat__channel-list .str-chat__channel-list-react {
+    overflow: hidden;
+}
+
+
