@@ -29,8 +29,8 @@ const TeamChannelPreview = ({ setActiveChannel, setIsCreating, setIsEditing, cha
     <div
       className={
         channel?.id === activeChannel?.id
-          ? "h-auto flex items-center bg-black/20 rounded-tr-lg rounded-br-lg font-bold mr-4 cursor-pointer z-2"
-          : "h-[37px] flex items-center"
+          ? "h-auto flex items-center bg-indigo-600 pl-4 p-0.5 rounded-md font-medium cursor-pointer text-white my-1"
+          : "py-1 flex items-center text-gray-600 cursor-pointer hover:bg-indigo-200 rounded-md pl-1"
       }
       onClick ={() => {
         setIsCreating(false)

@@ -1,6 +1,10 @@
 import React from 'react'
 import { MdErrorOutline } from "react-icons/md";
 import { AddChannel } from '../assets/AddChannel';
+import { HiUserGroup } from "react-icons/hi2";
+import { TbMessage } from "react-icons/tb";
+
+
 
 
 const TeamChannelList = ({children, error = false, loading, type, isCreating, setIsCreating, setCreateType, setIsEditing}) => {
@@ -27,8 +31,15 @@ const TeamChannelList = ({children, error = false, loading, type, isCreating, se
   return (
     <div className="max-w-xs rounded-md bg-blue-50 p-2 break-words my-2">
     <div className="flex items-center justify-between">
-        <p className='text-medium font-medium'>
-            {type === 'team' ? 'Channels' : 'Direct Messages'}
+        <p className='text-normal font-normal mb-1'>
+            {type === 'team' ?
+            <div className='inline-flex items-center'>
+            <HiUserGroup className="mb-1 mr-1 h-5 w-5" />
+            <p className='font-medium'>Channels</p>
+            </div> : <div className='inline-flex items-center'>
+            <TbMessage className=" mr-1 h-5 w-5" />
+            <p className='font-medium'>Direct Messages</p>
+            </div>}
         </p>
         <AddChannel
             isCreating={isCreating}
