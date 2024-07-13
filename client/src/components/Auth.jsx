@@ -35,15 +35,17 @@ const Auth = () => {
 
     const { fullName, username, avatarURL, phoneNumber, password } = form;
 
+    console.log(fullName)
+
     const URL = "http://localhost:3000/auth";
 
     try {
       const {
-        data: { token, userId, hashedPassword },
+        data: { token, userId, hashedPassword, fullName },
       } = await axios.post(`${URL}/${isSignup ? "signup" : "login"}`, {
         username,
         password,
-        fullName,
+        fullName: form.fullName,
         phoneNumber,
         avatarURL,
       });

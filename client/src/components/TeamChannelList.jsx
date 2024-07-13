@@ -31,7 +31,7 @@ const TeamChannelList = ({children, error = false, loading, type, isCreating, se
   return (
     <div className="max-w-xs rounded-md bg-blue-50 p-2 break-words my-2">
     <div className="flex items-center justify-between">
-        <p className='text-normal font-normal mb-1'>
+        <h2 className='text-normal font-normal mb-1'>
             {type === 'team' ?
             <div className='inline-flex items-center'>
             <HiUserGroup className="mb-1 mr-1 h-5 w-5" />
@@ -40,7 +40,7 @@ const TeamChannelList = ({children, error = false, loading, type, isCreating, se
             <TbMessage className=" mr-1 h-5 w-5" />
             <p className='font-medium'>Direct Messages</p>
             </div>}
-        </p>
+        </h2>
         <AddChannel
             isCreating={isCreating}
             setIsCreating={setIsCreating}

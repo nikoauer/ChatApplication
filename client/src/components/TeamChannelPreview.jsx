@@ -8,19 +8,22 @@ const TeamChannelPreview = ({ setActiveChannel, setIsCreating, setIsEditing, cha
     <p>{channel?.data?.name || channel?.data?.id}</p>
   );
 
+  const truncateId = (id, n) => {
+    return id && id.length > n ? id.substr(0, n) + "..." : id;
+  };
+
   const DirectPreview = () => {
     const members = Object.values(channel.state.members).filter(
       ({ user }) => user.id !== client.userID
     );
-
     return (
-      <div>
+      <div className="inline-flex py-0.5">
         <Avatar
           image={members[0].user.image}
-          name={members[0].user.fullName}
+          name={members[0].user.fullName || members[0]?.user?.id}
           size={24}
         />
-        <p>{members[0]?.user?.fullName}</p>
+        <p>{members[0]?.user?.fullName || truncateId(members[0]?.user?.id, 14)}</p>
       </div>
     );
   };
