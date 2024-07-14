@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useChat, useChatContext } from "stream-chat-react";
 import { IoSearch } from "react-icons/io5";
+import {ResultsDropdown} from './indexComponents'
 
 const ChannelSearch = () => {
   const [query, setQuery] = useState("");
@@ -46,9 +47,9 @@ const ChannelSearch = () => {
     getChannels(event.target.value);
   };
 
-  const setChannel = (channel) = {
-    setQuery('')
-    setActiveChannel(channel)
+  const setChannel = (channel) => {
+    setQuery('');
+    setActiveChannel(channel);
   }
 
   return (
@@ -64,7 +65,7 @@ const ChannelSearch = () => {
         <IoSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-200" />
       </div>
       {query && (
-        <ResultDropDown 
+        <ResultsDropdown 
           teamChannels={teamChannels}
           directChannels={directChannels}
           loading={loading}
