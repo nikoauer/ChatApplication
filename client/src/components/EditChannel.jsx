@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { useChat, useChatContext } from 'stream-chat-react'
+import { useChatContext } from 'stream-chat-react'
 import { UserGroupIcon } from "@heroicons/react/24/outline";
 import { UserList } from './indexComponents'
 import { CloseCreateChannel } from '../assets/CloseCreateChannel'
@@ -76,8 +76,8 @@ const EditChannel = ({ setIsEditing }) => {
   return (
 <div className="flex flex-col h-full">
 <ToastContainer />
-<div className="flex items-center justify-between h-[60px] shadow-sm pr-5">
-  <p className="ml-5 font-semibold text-lg text-gray-800">
+<div className="flex items-center justify-between h-[60px] shadow-sm pr-5 px-2">
+  <p className="ml-16 lg:ml-0 font-semibold text-lg text-gray-800">
     Edit Channel
   </p>
   <CloseCreateChannel setIsEditing={setIsEditing} />

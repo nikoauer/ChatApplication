@@ -21,7 +21,7 @@ const channelByUser = async ({ client, setActiveChannel, channel, setChannel }) 
   return setActiveChannel(newChannel);
 };
 
-const SearchResult = ({ channel, focusedId, type, setChannel, setToggleContainer }) => {
+const SearchResult = ({ channel, focusedId, type, setChannel, setSidebarOpen }) => {
   const { client, setActiveChannel } = useChatContext();
 
   if (type === 'channel') {
@@ -29,8 +29,8 @@ const SearchResult = ({ channel, focusedId, type, setChannel, setToggleContainer
       <div
         onClick={() => {
           setChannel(channel)
-          if(setToggleContainer) {
-            setToggleContainer((prevState) => !prevState)   
+          if(setSidebarOpen) {
+            setSidebarOpen((prevState) => !prevState)   
           }
         }}
         className='cursor-pointer hover:bg-indigo-200 rounded-md py-1'
@@ -44,8 +44,8 @@ const SearchResult = ({ channel, focusedId, type, setChannel, setToggleContainer
     <div
       onClick={async () => {
         channelByUser({ client, setActiveChannel, channel, setChannel })
-        if(setToggleContainer) {
-            setToggleContainer((prevState) => !prevState)   
+        if(setSidebarOpen) {
+            setSidebarOpen((prevState) => !prevState)   
         }
       }}
       className='cursor-pointer hover:bg-indigo-200 rounded-md py-1'
@@ -58,7 +58,7 @@ const SearchResult = ({ channel, focusedId, type, setChannel, setToggleContainer
   );
 };
 
-const ResultsDropdown = ({ teamChannels, directChannels, focusedId, loading, setChannel, setToggleContainer }) => {
+const ResultsDropdown = ({ teamChannels, directChannels, focusedId, loading, setChannel, setSidebarOpen }) => {
 
   return (
 <div className="absolute z-10 mt-2 max-h-[20rem] w-[16.5rem] overflow-auto rounded-md bg-white p-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
@@ -80,7 +80,7 @@ const ResultsDropdown = ({ teamChannels, directChannels, focusedId, loading, set
             key={i}
             setChannel={setChannel}
             type='channel'
-            setToggleContainer={setToggleContainer}
+            setSidebarOpen={setSidebarOpen}
           />
         ))
       )}
@@ -102,7 +102,7 @@ const ResultsDropdown = ({ teamChannels, directChannels, focusedId, loading, set
             key={i}
             setChannel={setChannel}
             type='user'
-            setToggleContainer={setToggleContainer}
+            setSidebarOpen={setSidebarOpen}
           />
         ))
       )}

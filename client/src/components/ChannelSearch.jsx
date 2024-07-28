@@ -3,7 +3,7 @@ import { useChat, useChatContext } from "stream-chat-react";
 import { IoSearch, IoClose } from "react-icons/io5";
 import {ResultsDropdown} from './indexComponents'
 
-const ChannelSearch = () => {
+const ChannelSearch = ({setSidebarOpen}) => {
   const [query, setQuery] = useState("");
   const [loading, setLoading] = useState(false);
   const { client, setActiveChannel } = useChatContext();
@@ -80,6 +80,7 @@ const ChannelSearch = () => {
           loading={loading}
           setChannel={setChannel}
           setQuery={setQuery}
+          setSidebarOpen={setSidebarOpen}
         />
       )}
     </div>

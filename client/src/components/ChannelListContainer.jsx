@@ -1,5 +1,10 @@
 import React, { useState } from "react";
-import { Transition } from "@headlessui/react";
+import {
+  TransitionChild,
+  Dialog,
+  DialogBackdrop,
+  DialogPanel,
+} from "@headlessui/react";
 import {
   Bars3Icon,
   XMarkIcon,
@@ -12,7 +17,6 @@ import {
   TeamChannelPreview,
 } from "./indexComponents";
 import Cookies from "universal-cookie";
-import chatSymbol from "../assets/chatSymbol.png";
 import chatAppLogo from "../assets/ChatAppLogo.png";
 
 const cookies = new Cookies();
@@ -36,6 +40,7 @@ const ChannelListContent = ({
   setIsCreating,
   setCreateType,
   setIsEditing,
+  setSidebarOpen,
 }) => {
   const { client } = useChatContext();
   const logout = () => {
@@ -53,11 +58,11 @@ const ChannelListContent = ({
   const filters = { members: { $in: [client.userID] } };
 
   return (
-    <div className="flex flex-col min-w-72 bg-indigo-500 md:w-80 lg:w-96 size-min-w-72 overflow-auto">
+    <div className="flex flex-col min-w-72 bg-indigo-500 h-screen overflow-y-auto">
       <CompanyHeader />
       <div className="flex flex-col justify-center">
         <div className="mx-3">
-          <ChannelSearch />
+          <ChannelSearch setSidebarOpen={setSidebarOpen} />
         </div>
         <div className="flex flex-col my-2">
           <div className="flex justify-center mx-3 my-1">
@@ -75,10 +80,12 @@ const ChannelListContent = ({
                 />
               )}
               Preview={(previewProps) => (
-                <TeamChannelPreview {...previewProps}
-                setIsCreating={setIsCreating}
-                setIsEditing={setIsEditing}
-                type="team" />
+                <TeamChannelPreview
+                  {...previewProps}
+                  setIsCreating={setIsCreating}
+                  setIsEditing={setIsEditing}
+                  type="team"
+                />
               )}
             />
           </div>
@@ -97,10 +104,12 @@ const ChannelListContent = ({
                 />
               )}
               Preview={(previewProps) => (
-                <TeamChannelPreview {...previewProps} 
-                setIsCreating={setIsCreating}
-                setIsEditing={setIsEditing}
-                type="messaging" />
+                <TeamChannelPreview
+                  {...previewProps}
+                  setIsCreating={setIsCreating}
+                  setIsEditing={setIsEditing}
+                  type="messaging"
+                />
               )}
             />
           </div>
@@ -131,21 +140,67 @@ const ChannelListContainer = ({
   setIsCreating,
   setIsEditing,
 }) => {
-  const [toggleContainer, settoggleContainer] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
     <>
-      <ChannelListContent
-        setIsCreating={setIsCreating}
-        setCreateType={setCreateType}
-        setIsEditing={setIsEditing}
-      />
+      <div className="relative shadow-lg">
+        <button
+          type="button"
+          onClick={() => setSidebarOpen(true)}
+          className="absolute top-0 left-0 p-4 lg:hidden z-10 bg-indigo-600"
+        >
+          <Bars3Icon className="h-6 w-6 text-white" />
+        </button>
+      </div>
 
-      <div className="hidden">
+      <Dialog
+        open={sidebarOpen}
+        onClose={setSidebarOpen}
+        className="relative z-50 lg:hidden"
+      >
+        <DialogBackdrop
+          transition
+          className="fixed inset-0 bg-gray-900/80 transition-opacity duration-300 ease-linear data-[closed]:opacity-0"
+        />
+
+        <div className="fixed inset-0 flex">
+          <DialogPanel
+            transition
+            className="relative mr-16 flex w-full max-w-xs flex-1 transform transition duration-300 ease-in-out data-[closed]:-translate-x-full"
+          >
+            <TransitionChild>
+              <div className="absolute left-full top-0 flex justify-center pt-5 duration-300 ease-in-out data-[closed]:opacity-0">
+                <button
+                  type="button"
+                  onClick={() => setSidebarOpen(false)}
+                  className="-m-2.5 p-2.5"
+                >
+                  <span className="sr-only">Close sidebar</span>
+                  <XMarkIcon
+                    aria-hidden="true"
+                    className="h-6 w-6 text-white"
+                  />
+                </button>
+              </div>
+            </TransitionChild>
+
+            <ChannelListContent
+              setIsCreating={setIsCreating}
+              setCreateType={setCreateType}
+              setIsEditing={setIsEditing}
+              setSidebarOpen={setSidebarOpen}
+            />
+          </DialogPanel>
+        </div>
+      </Dialog>
+
+      <div className="hidden lg:block">
         <ChannelListContent
           setIsCreating={setIsCreating}
           setCreateType={setCreateType}
           setIsEditing={setIsEditing}
+          setSidebarOpen={setSidebarOpen}
         />
       </div>
     </>

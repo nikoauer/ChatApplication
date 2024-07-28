@@ -52,7 +52,7 @@ const TeamChannelHeader = ({ setIsEditing }) => {
 
     if (channel.type === 'messaging') {
       return (
-        <div className="flex items-center space-x-2">
+        <div className="flex items-center space-x-2 ml-12 lg:ml-0">
           {members.map(({ user }, i) => (
             <div key={i} className="flex items-center space-x-2">
               <Avatar image={user.image} name={user.fullName || user.id} size={32} />
@@ -66,7 +66,7 @@ const TeamChannelHeader = ({ setIsEditing }) => {
 
     return (
       <div className="flex items-center cursor-pointer">
-        <p className="font-bold text-lg text-indigo-700 mr-2">
+        <p className="font-bold text-lg text-indigo-700 mr-2 ml-12 lg:ml-0">
           {channel.data.name}
         </p>
         <span style={{ display: "flex" }} onClick={() => setIsEditing(true)}>
