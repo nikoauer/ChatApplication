@@ -61,7 +61,8 @@ const SearchResult = ({ channel, focusedId, type, setChannel, setSidebarOpen }) 
 const ResultsDropdown = ({ teamChannels, directChannels, focusedId, loading, setChannel, setSidebarOpen }) => {
 
   return (
-<div className="absolute z-10 mt-2 max-h-[20rem] w-[16.5rem] overflow-auto rounded-md bg-white p-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+<div className='flex justify-center'>
+<div className="absolute z-50 mt-2 max-h-[20rem] lg:w-[264px] md:w-[249px] w-[255px] overflow-auto rounded-md bg-white p-1 text-sm shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
       <p className='inline-flex font-medium'><HiUserGroup className='mt-0.5 mx-1'/>Channels</p>
       {loading && !teamChannels.length && (
         <p className='ml-2'>
@@ -106,6 +107,7 @@ const ResultsDropdown = ({ teamChannels, directChannels, focusedId, loading, set
           />
         ))
       )}
+    </div>
     </div>
   );
 };

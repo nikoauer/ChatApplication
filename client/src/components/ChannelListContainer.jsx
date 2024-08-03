@@ -157,7 +157,7 @@ const ChannelListContainer = ({
       <Dialog
         open={sidebarOpen}
         onClose={setSidebarOpen}
-        className="relative z-50 lg:hidden"
+        className="relative z-10 lg:hidden"
       >
         <DialogBackdrop
           transition
@@ -174,7 +174,7 @@ const ChannelListContainer = ({
                 <button
                   type="button"
                   onClick={() => setSidebarOpen(false)}
-                  className="-m-2.5 p-2.5"
+                  className="-m-2.5 p-2"
                 >
                   <span className="sr-only">Close sidebar</span>
                   <XMarkIcon

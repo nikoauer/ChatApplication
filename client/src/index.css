@@ -39,10 +39,42 @@
     position: static;
     max-height: 420px;
     overflow: auto;
+    border-radius: 10px;
 } 
 
 .str-chat__channel-list .str-chat__channel-list-react {
     overflow: hidden;
 }
 
+.str-chat-channel-list.team {
+    z-index: 10;
+    min-height: 420px;
+    border-radius: 10px;
+}
+
+.str-chat__modal__inner {
+    width: 50vw;
+}
+
+.str-chat__message-reactions-details-reaction-types {
+    display: flex;
+    justify-content: center;
+}
+
+.str-chat__message-reactions-details-reaction-type {
+    margin: 0px 10px 0px 10px;
+}
+
+.str-chat__message-reactions-details-reaction-types {
+    margin-left: 0px;
+}
+
+.str-chat__message-reactions-details-reacting-user {
+    display: flex;
+    padding-top: 5px;
+}
+
+.str-chat__user-item--name {
+    margin-top: 3px;
+}
 

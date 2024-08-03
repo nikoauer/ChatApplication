@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useChat, useChatContext } from "stream-chat-react";
+import { useChatContext } from "stream-chat-react";
 import { IoSearch, IoClose } from "react-icons/io5";
 import {ResultsDropdown} from './indexComponents'
 
