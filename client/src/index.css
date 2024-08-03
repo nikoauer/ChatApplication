@@ -119,3 +119,16 @@
 .str-chat__close-thread-button::after {
     transform: translate(-50%, -50%) rotate(-45deg);
 }
+
+.str-chat__thread-container {
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    border-left: 1px solid #d1d5db; 
+}
+
+.str-chat__small-message-input__wrapper {
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+.str-chat__input-flat {
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
