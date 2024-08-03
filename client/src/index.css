@@ -26,10 +26,6 @@
     padding-right: 5px;
 }
 
-.str-chat__close-thread-button {
-    background-color: indigo;
-}
-
 .str-chat__parent-message-li {
     margin-top: 30px;
 }
@@ -78,3 +74,48 @@
     margin-top: 3px;
 }
 
+.str-chat__close-thread-button {
+    vertical-align: middle;
+    border: none;
+    color: inherit;
+    border-radius: 50%; 
+    background: transparent;
+    position: relative;
+    width: 32px;
+    height: 32px;
+    opacity: 0.7;
+}
+
+.str-chat__close-thread-button:focus,
+.str-chat__close-thread-button:hover {
+    opacity: 1; 
+    background: #4f46e5; 
+}
+
+.str-chat__close-thread-button:active {
+    background: #6366f1; 
+}
+
+.str-chat__close-thread-button:hover::before,
+.str-chat__close-thread-button:hover::after {
+    background-color: #ffffff; 
+}
+
+.str-chat__close-thread-button::before,
+.str-chat__close-thread-button::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 2px;
+    width: 16px; 
+    background-color: currentColor; 
+}
+
+.str-chat__close-thread-button::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.str-chat__close-thread-button::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
