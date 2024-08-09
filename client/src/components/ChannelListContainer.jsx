@@ -50,7 +50,6 @@ const ChannelListContent = ({
     cookies.remove("fullName");
     cookies.remove("avatarURL");
     cookies.remove("hashedPassword");
-    cookies.remove("phoneNumber");
 
     window.location.reload();
   };

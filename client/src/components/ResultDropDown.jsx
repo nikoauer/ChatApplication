@@ -33,7 +33,7 @@ const SearchResult = ({ channel, focusedId, type, setChannel, setSidebarOpen }) 
             setSidebarOpen((prevState) => !prevState)   
           }
         }}
-        className='cursor-pointer hover:bg-indigo-200 rounded-md py-1'
+        className='cursor-pointer hover:bg-indigo-200 rounded-lg py-1'
       >
         <p className='ml-1'>{channel.data.name}</p>
       </div>
@@ -48,7 +48,7 @@ const SearchResult = ({ channel, focusedId, type, setChannel, setSidebarOpen }) 
             setSidebarOpen((prevState) => !prevState)   
         }
       }}
-      className='cursor-pointer hover:bg-indigo-200 rounded-md py-1'
+      className='cursor-pointer hover:bg-indigo-200 rounded-lg py-1'
     >
       <div className='flex flex-inline'>
         <Avatar image={channel.image || undefined} name={channel.name} size={24} />
@@ -62,7 +62,7 @@ const ResultsDropdown = ({ teamChannels, directChannels, focusedId, loading, set
 
   return (
 <div className='flex justify-center'>
-<div className="absolute z-50 mt-2 max-h-[20rem] lg:w-[264px] md:w-[249px] w-[255px] overflow-auto rounded-md bg-white p-1 text-sm shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+<div className="absolute z-50 mt-2 max-h-[20rem] lg:w-[264px] md:w-[249px] w-[255px] overflow-auto rounded-lg bg-white p-1 text-sm shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
       <p className='inline-flex font-medium'><HiUserGroup className='mt-0.5 mx-1'/>Channels</p>
       {loading && !teamChannels.length && (
         <p className='ml-2'>

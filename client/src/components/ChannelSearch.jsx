@@ -57,7 +57,7 @@ const ChannelSearch = ({setSidebarOpen}) => {
   };
 
   return (
-  <div>
+  <div className="relative">
       <div className="relative flex justify-center items-center mt-3">
         <input
           className="block w-full shadow-md rounded-md border-0 py-1.5 pl-10 pr-10 text-white bg-indigo-700 placeholder:text-gray-200 focus:ring-indigo-600 sm:text-sm sm:leading-6"
