@@ -12,9 +12,9 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded());
 
-// app.get("/", (req, res) => {
-//   res.send('Hello there')
-// });
+app.get("/", (req, res) => {
+  res.send('Hello there')
+});
 
 app.use('/auth', authRoutes)
 
