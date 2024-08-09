@@ -36,7 +36,7 @@ const Auth = () => {
 
     console.log(fullName)
 
-    const URL = "http://localhost:3000/auth";
+    const URL = "https://chatapplication-j6a1.onrender.com/auth";
 
     try {
       const {
