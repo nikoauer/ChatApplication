@@ -2,6 +2,8 @@
 
 ## Description
 
+Live Link: https://chatapplication-frontend-cqtl.onrender.com
+
 This is a real-time chat application that would be used inside an internal Company. After using Microsoft teams at my current job as an internal chat tool, I was curious to see if this was possible to build.  The app allows multiple users to chat in real-time, featuring a modern user interface with smooth animations. The biggest challenge I found was fixing the styling with the prebuilt components that GetStream offers and making it responsive in conjuction with them. 
 
 ## Features
@@ -43,6 +45,7 @@ Install dependencies for both the frontend and backend:
 
 Backend: Start the server from the server directory
 - npm run dev
+
 Frontend: Start the client from the client directory
 - npm run start
 
