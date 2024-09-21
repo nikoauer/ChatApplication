@@ -32,19 +32,19 @@ cd chat-app
 Install dependencies for both the frontend and backend:
 
 # Install server-side dependencies
-cd server
-npm install
+- cd server
+- npm install
 
 # Install client-side dependencies
-cd ../client
-npm install
+- cd ../client
+- npm install
 
 # Start the development servers:
 
 Backend: Start the server from the server directory
-npm run dev
+- npm run dev
 Frontend: Start the client from the client directory
-npm run start
+- npm run start
 
 Open the app in your browser
 
@@ -54,5 +54,5 @@ Users can sign up or log in.
 Once authenticated, users can join chat rooms or start direct conversations. Additionally users can react to messages, respond to individual messages and send photos. 
 All messages are broadcast in real-time.
 
-[ChatApp](/chatapp.png.png)
+![ChatApp](/chatapp.png)
 
