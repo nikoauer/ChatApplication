@@ -53,5 +53,6 @@ Open the app in your browser
 Users can sign up or log in.
 Once authenticated, users can join chat rooms or start direct conversations. Additionally users can react to messages, respond to individual messages and send photos. 
 All messages are broadcast in real-time.
-    ![ChatApp](/chatapp.png.png)
+
+[ChatApp](/chatapp.png.png)
 
