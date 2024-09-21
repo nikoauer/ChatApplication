@@ -38,7 +38,7 @@ Install dependencies for both the frontend and backend:
 - npm install
 
 # Install client-side dependencies
-- cd ../client
+- cd client
 - npm install
 
 # Start the development servers:
